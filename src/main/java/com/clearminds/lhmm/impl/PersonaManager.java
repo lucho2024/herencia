@@ -15,12 +15,9 @@ public class PersonaManager {
 	public PersonaManager(String tipo) throws InstanceException {
 		
 		try {
-			Properties p = new Properties();
-			File f = new File("config.properties");
-			p.load(new FileReader(f.getAbsolutePath()));
-			System.out.println(p.getProperty(tipo));
-			if(p.getProperty(tipo)!=null){
-				Class<?> clase =Class.forName("com.clearminds.lhmm.impl."+p.getProperty(tipo));
+			String propiedad =leerPropiedad(tipo);
+			if(propiedad!=null){
+				Class<?> clase =Class.forName("com.clearminds.lhmm.impl."+propiedad);
 				serv=(ServicioPersona)clase.newInstance();
 			}else{
 				//si la property viene vacia se conecta por defecto a la BDD
@@ -35,6 +32,23 @@ public class PersonaManager {
 		}
 		
 		
+		
+	}
+	
+	public String leerPropiedad(String tipo){
+		try {
+			Properties p = new Properties();
+			File f = new File("config.properties");
+			p.load(new FileReader(f.getAbsolutePath()));
+			System.out.println(p.getProperty(tipo));
+			if(p.getProperty(tipo)!=null){
+				return p.getProperty(tipo);	
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return null;
 		
 	}
 
