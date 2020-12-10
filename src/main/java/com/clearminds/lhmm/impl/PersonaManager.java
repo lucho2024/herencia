@@ -46,6 +46,7 @@ public class PersonaManager {
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
 		return null;
