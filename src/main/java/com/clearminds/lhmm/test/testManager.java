@@ -10,7 +10,7 @@ public class testManager {
 		// TODO Auto-generated method stub
 		
 		try {
-			PersonaManager p = new PersonaManager();
+			PersonaManager p = new PersonaManager("BDD");
 			p.insertarPersona(new Persona("luis",20,"colombia"));
 		} catch (InstanceException e) {
 			// TODO: handle exception
