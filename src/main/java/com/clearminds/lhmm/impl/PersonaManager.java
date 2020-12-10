@@ -9,7 +9,7 @@ public class PersonaManager {
 	
 	public PersonaManager() {
 		
-		serv = new ServicioPersonaBDD();
+		serv = new ServicioPersonaArchivos();
 		
 	}
 
